@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 # Parameters
-windowH, windowW = 450, 450
+windowH, windowW = 480, 480
 
 circles = np.zeros((4, 2), np.int)
 
@@ -20,7 +20,7 @@ def mousepoints(event, x, y, flags, params):
 
 # Load base test image, to be later changed to a video source #
 # filename = 'test_images/blank_board.jpg'
-filename = 'test_images/real_board_2.jpg'
+filename = 'test_images/real_board_2_test_dots.jpg'
 source = cv2.imread(filename)
 
 
@@ -40,9 +40,8 @@ while True:
         # TODO: use myfuncs.py to sort corners into correct order (top left, top right, bottom left .etc)
         order(circles)
         # Warp image perspective #
-        print(order(circles))
         pos1 = np.float32(order(circles))
-        pos2 = np.float32([[0, windowH], [windowW, windowH], [0, 0], [windowW, 0]])
+        pos2 = np.float32([[0, 0], [windowW, 0], [0, windowH], [windowW, windowH]])
         matrix = cv2.getPerspectiveTransform(pos1, pos2)
         imgOutput = cv2.warpPerspective(base, matrix, (windowW, windowH))
         break
@@ -50,14 +49,15 @@ while True:
     for x in range(0, 4):
         cv2.circle(cornerClick, (circles[x][0], circles[x][1]), 5, (0, 255, 0), cv2.FILLED)
     cv2.imshow("CornerClick", cornerClick)
-
     # Look for double clicks on "base" window
     cv2.setMouseCallback('CornerClick', mousepoints)
 
     cv2.waitKey(1)
-
+cv2.destroyWindow("CornerClick")
 cv2.imshow("Fixed Perspective", imgOutput)
-
+test = splitboard(imgOutput)
+print(len(test))
+cv2.imshow("test", test[0])
 
 cv2.waitKey(0)
 

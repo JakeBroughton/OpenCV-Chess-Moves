@@ -26,7 +26,13 @@ def order(pts):
     return tl, tr, bl, br
 
 
-# TODO: make function to split board up into individual squares
-def splitboard():
-    pass
+# TODO: make function to split board up into 64 individual squares
+def splitboard(img):
+    squares = []
+    col = np.hsplit(img, 8)
+    for i in col:
+        row = np.vsplit(i, 8)
+        for n in row:
+            squares.append(n)
+    return squares
 
