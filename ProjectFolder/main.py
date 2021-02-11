@@ -15,7 +15,7 @@ def mousepoints(event, x, y, flags, params):
     if event == cv2.EVENT_LBUTTONDBLCLK:
         circles[counter] = x, y
         counter += 1
-        print(circles)
+        #print(circles)
 
 
 # Load base test image, to be later changed to a video source #
@@ -38,9 +38,10 @@ print("Double click corners of board.")
 while True:
     if counter == 4:
         # TODO: use myfuncs.py to sort corners into correct order (top left, top right, bottom left .etc)
-
+        order(circles)
         # Warp image perspective #
-        pos1 = np.float32([circles[0], circles[1], circles[2], circles[3]])
+        print(order(circles))
+        pos1 = np.float32(order(circles))
         pos2 = np.float32([[0, windowH], [windowW, windowH], [0, 0], [windowW, 0]])
         matrix = cv2.getPerspectiveTransform(pos1, pos2)
         imgOutput = cv2.warpPerspective(base, matrix, (windowW, windowH))
@@ -49,18 +50,16 @@ while True:
     for x in range(0, 4):
         cv2.circle(cornerClick, (circles[x][0], circles[x][1]), 5, (0, 255, 0), cv2.FILLED)
     cv2.imshow("CornerClick", cornerClick)
-    # Look for double clicks on "base" window
 
+    # Look for double clicks on "base" window
     cv2.setMouseCallback('CornerClick', mousepoints)
 
     cv2.waitKey(1)
 
 cv2.imshow("Fixed Perspective", imgOutput)
+
+
 cv2.waitKey(0)
 
 # Split board into grid #
 
-# Close all windows on ESC key
-
-# Test change
-test = True
