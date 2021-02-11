@@ -3,6 +3,8 @@
     <words>
       <w>grayscale</w>
       <w>imshow</w>
+      <w>mousepoints</w>
+      <w>myfuncs</w>
     </words>
   </dictionary>
 </component>
