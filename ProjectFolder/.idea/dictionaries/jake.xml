@@ -2,6 +2,7 @@
   <dictionary name="jake">
     <words>
       <w>grayscale</w>
+      <w>imshow</w>
     </words>
   </dictionary>
 </component>
