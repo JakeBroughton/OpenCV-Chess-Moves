@@ -63,3 +63,4 @@ cv2.waitKey(0)
 # Close all windows on ESC key
 
 # Test change
+test = True
