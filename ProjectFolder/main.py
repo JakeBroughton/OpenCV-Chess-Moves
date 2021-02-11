@@ -42,5 +42,3 @@ if ret:
 # Wait for ESC key
 if cv2.waitKey(0) == 27:
     cv2.destroyAllWindows()
-
-
