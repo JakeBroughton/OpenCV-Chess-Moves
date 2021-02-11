@@ -6,8 +6,16 @@ import numpy as np
 windowH = 450
 windowW = 450
 
+x_squares = 8
+y_squares = 7
+
+x_no = x_squares - 1
+y_no = y_squares - 1
+
 # Load base test image, to be later changed to a video source #
-filename = 'test_images/empty_real_board_wood.jpg'
+#filename = 'test_images/blank_board.jpg'
+filename = 'test_images/calibration.jpg'
+
 source = cv2.imread(filename)
 # cv2.imshow("Base Image", source)
 
@@ -15,17 +23,18 @@ base = cv2.resize(source, (windowH, windowW))
 cv2.imshow("Resize", base)
 
 # Find contours of image and draw #
-baseGrey = cv2.cvtColor(base, cv2.COLOR_BGR2GRAY)
-ret, thresh = cv2.threshold(baseGrey, 200, 255, 0)
-cv2.imshow("Threshold", thresh)
-# Contours contains list of contours
-contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-# Draw contours
-contourDraw = cv2.drawContours(baseGrey, contours, -1, (0, 255, 0), 3)
-cv2.imshow("Contours", contourDraw)
+gray = cv2.cvtColor(base, cv2.COLOR_BGR2GRAY)
 
-# Find largest contour, most likely chess board #
+# Find chessboard corners
+ret, corners = cv2.findChessboardCorners(gray, (x_no, y_no), None)
+if ret:
+    print("Found corners")
+    cv2.drawChessboardCorners(gray, (7,6), corners, ret)
+    cv2.imshow("image", gray)
 
+    print(type(corners))
+    print(len(corners))
+    print(corners)
 # Warp image perspective #
 
 # Split board into grid #
@@ -33,3 +42,5 @@ cv2.imshow("Contours", contourDraw)
 # Wait for ESC key
 if cv2.waitKey(0) == 27:
     cv2.destroyAllWindows()
+
+
