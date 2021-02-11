@@ -61,3 +61,5 @@ cv2.waitKey(0)
 # Split board into grid #
 
 # Close all windows on ESC key
+
+# Test change
