@@ -15,20 +15,18 @@ def mousepoints(event, x, y, flags, params):
     if event == cv2.EVENT_LBUTTONDBLCLK:
         circles[counter] = x, y
         counter += 1
-        #print(circles)
+        # print(circles)
 
 
 # Load base test image, to be later changed to a video source #
 # filename = 'test_images/blank_board.jpg'
-filename = 'test_images/real_board_2_test_dots.jpg'
+filename = 'test_images/alex_before.jpg'
 source = cv2.imread(filename)
-
 
 cornerClick = cv2.resize(source, (windowH, windowW))
 cv2.imshow("CornerClick", cornerClick)
 
 base = cornerClick.copy()
-
 
 cv2.imshow("CornerClick", cornerClick)
 
@@ -51,15 +49,20 @@ while True:
     cv2.imshow("CornerClick", cornerClick)
     # Look for double clicks on "base" window
     cv2.setMouseCallback('CornerClick', mousepoints)
-
     cv2.waitKey(1)
 cv2.destroyWindow("CornerClick")
 cv2.imshow("Fixed Perspective", imgOutput)
-test = splitboard(imgOutput)
-print(len(test))
-cv2.imshow("test", test[0])
+individualSquareMatrix = splitboard(imgOutput)
+print(len(individualSquareMatrix))
+cv2.imshow("test", individualSquareMatrix[0])
+cv2.imwrite("test_images/BeforeSquare0.jpg", individualSquareMatrix[0])
+
+# Decide if square contains a piece or not
+# boardSquare = test[0]
+# boardGrey = cv2.cvtColor(boardSquare, cv2.COLOR_BGR2GRAY)
+# boardEdges = cv2.Canny(boardGrey, 50, 200)
+
 
 cv2.waitKey(0)
 
 # Split board into grid #
-

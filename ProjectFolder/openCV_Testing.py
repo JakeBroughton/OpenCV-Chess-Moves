@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-
+"""
 # filename = "test_images/blank_board.jpg"
 filename = 'test_images/real_board.jpg'
 
@@ -25,3 +25,5 @@ img[dst > 0.01*dst.max()] = [0, 0, 255]
 cv2.imshow('Harris edge detection', img)
 if cv2.waitKey(0) & 0xff == 27:
     cv2.destroyAllWindows()
+"""
+from myfuncs import *

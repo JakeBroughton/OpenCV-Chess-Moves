@@ -36,3 +36,7 @@ def splitboard(img):
             squares.append(n)
     return squares
 
+
+def squarename(square):
+    # return actual square name, given location in individualSquareMatrix
+    return square
