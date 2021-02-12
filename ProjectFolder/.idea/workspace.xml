@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f1f3576-c146-4145-aef2-3bd5d2965e88" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/test_images/AfterSquare0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_images/BeforeSquare0.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jake.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfuncs.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfuncs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openCV_Testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/openCV_Testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_images/BeforeSquare0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test_images/BeforeSquare0.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,16 +18,16 @@
         <entry file="file://$PROJECT_DIR$/openCV_Testing.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+              <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="54" column="22" selection-start-line="54" selection-end-line="54" selection-end-column="22" />
+            <state relative-caret-position="283">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -40,26 +35,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myfuncs.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myfuncs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myfuncs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="436">
+              <caret line="40" column="73" lean-forward="true" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
               <folding>
                 <element signature="e#97#115#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeforeSquare0.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_images/BeforeSquare0.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="AfterSquare0.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_images/AfterSquare0.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -83,13 +68,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/openCV_Testing.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/myfuncs.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -239,15 +224,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27029914" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27029914" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32893288" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32893288" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3278328" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3278328" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -544,13 +529,6 @@
     <entry file="file://$PROJECT_DIR$/test_images/blank_board.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/openCV_Testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_images/alex_after.JPG">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -560,28 +538,35 @@
     <entry file="file://$PROJECT_DIR$/test_images/alex_board.JPG">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_images/AfterSquare0.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_images/BeforeSquare0.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/test_images/AfterSquare0.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openCV_Testing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="54" column="22" selection-start-line="54" selection-end-line="54" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="459">
+          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myfuncs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        <state relative-caret-position="436">
+          <caret line="40" column="73" lean-forward="true" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
           <folding>
             <element signature="e#97#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
