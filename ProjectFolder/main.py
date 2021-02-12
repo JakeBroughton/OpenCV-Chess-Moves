@@ -20,11 +20,8 @@ def mousepoints(event, x, y, flags, params):
 
 # Load base test image, to be later changed to a video source #
 # filename = 'test_images/blank_board.jpg'
-
-filename = 'test_images/alex_nocamera.jpg'
-cap = cv2.VideoCapture(0)
+filename = 'test_images/real_board_2_test_dots.jpg'
 source = cv2.imread(filename)
-#ret, source = cap.read()
 
 cornerClick = cv2.resize(source, (windowH, windowW))
 cv2.imshow("CornerClick", cornerClick)
@@ -57,16 +54,14 @@ cv2.destroyWindow("CornerClick")
 cv2.imshow("Fixed Perspective", imgOutput)
 individualSquareMatrix = splitboard(imgOutput)
 print(len(individualSquareMatrix))
-cv2.imshow("test", individualSquareMatrix[30])
-cv2.imwrite("test_images/memory_stick_after_x.jpg", individualSquareMatrix[30])
-
+cv2.imshow("test", individualSquareMatrix[0])
+#cv2.imwrite("test_images/BeforeSquare0.jpg", individualSquareMatrix[0])
+print(squarename(0))
 # Decide if square contains a piece or not
-boardSquare = individualSquareMatrix[30]
-boardGrey = cv2.cvtColor(boardSquare, cv2.COLOR_BGR2GRAY)
-ret, thresh = cv2.threshold(boardGrey, 40, 255,0)
-cv2.imshow("grey", thresh)
-contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-print(len(contours))
+# boardSquare = test[0]
+# boardGrey = cv2.cvtColor(boardSquare, cv2.COLOR_BGR2GRAY)
+# boardEdges = cv2.Canny(boardGrey, 50, 200)
+
 
 cv2.waitKey(0)
 
