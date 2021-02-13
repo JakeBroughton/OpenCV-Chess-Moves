@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+font = cv2.FONT_HERSHEY_SIMPLEX
 
 
 def order(pts):
@@ -114,4 +115,61 @@ def cameracheck(camera):
         return False
     else:
         # Camera found
+        cap.release()
         return True
+
+
+# TODO: Improve function so it can be given different numbers of windows
+def bigwindow(windows, size, title):
+    # Give function a list of windows to display, shows them all in one big window
+
+    # Input list of windows and display them all
+    # wcount = 0
+    # newwindows = []
+    # for w in windows:
+    #     w = cv2.resize(w, size)
+    #     newwindows.append(w)
+    #     wcount += 1
+    #
+    # concat = cv2.hconcat(newwindows)
+    # cv2.imshow(title, concat)
+    wcount = 0
+    newwindows = []
+    for w in windows:
+        w = cv2.resize(w, size)
+        newwindows.append(w)
+        wcount += 1
+    if len(windows) == 4:
+        hconcat1 = cv2.hconcat([newwindows[0], newwindows[1]])
+        hconcat2 = cv2.hconcat([newwindows[2], newwindows[3]])
+
+    concat = cv2.vconcat([hconcat1, hconcat2])
+    cv2.imshow(title, concat)
+
+
+def windowtext(window, text):
+    cv2.putText(window,
+                str(text),
+                (50, 50),
+                font, 1,
+                (0, 255, 255),
+                2,
+                cv2.LINE_4)
+
+
+def difference(img1, img2):
+    diffy = cv2.subtract(img1, img2)
+    return diffy
+
+
+def create_blank(width, height, rgb_color=(0, 0, 0)):
+    # Create blank openCV image
+
+    # Create black blank image
+    image = np.zeros((height, width, 3), np.uint8)
+
+    # Since OpenCV uses BGR, convert the color first
+    color = tuple(reversed(rgb_color))
+    # Fill image with color
+    image[:] = color
+    return image

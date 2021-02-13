@@ -1,14 +1,24 @@
 <component name="ProjectDictionaryState">
   <dictionary name="jake">
     <words>
+      <w>bigwindow</w>
       <w>boardgrey</w>
       <w>cameracheck</w>
+      <w>diffy</w>
       <w>grayscale</w>
+      <w>hconcat</w>
+      <w>imagediff</w>
       <w>imshow</w>
+      <w>keybinds</w>
       <w>mousepoints</w>
       <w>myfuncs</w>
+      <w>newconcat</w>
+      <w>newwindows</w>
+      <w>nocamera</w>
       <w>splitboard</w>
       <w>squarename</w>
+      <w>wcount</w>
+      <w>windowtext</w>
     </words>
   </dictionary>
 </component>

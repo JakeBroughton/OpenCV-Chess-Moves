@@ -2,6 +2,8 @@
 from myfuncs import *
 import cv2
 import numpy as np
+from datetime import datetime
+import ctypes
 
 # Parameters
 windowH, windowW = 480, 480
@@ -19,8 +21,10 @@ cap_count = 0
 
 # Check camera has access
 if cameracheck(cameraID):
+    print(f'Camera found at id {cameraID}.')
     pass
 else:
+    print(f'Could not find camera with ID {cameraID}.')
     raise SystemExit
 
 
@@ -40,13 +44,7 @@ while True:
     rawSource = cv2.resize(rawSource, (windowW, windowH))
     cv2.imshow('Raw Source', rawSource)
 
-    cv2.putText(rawSource,
-                'Double-click corners',
-                (50, 50),
-                font, 1,
-                (0, 255, 255),
-                2,
-                cv2.LINE_4)
+    windowtext(rawSource, "Double click corners")
 
     if counter == 4:
         # TODO: use myfuncs.py to sort corners into correct order (top left, top right, bottom left .etc)
@@ -59,8 +57,8 @@ while True:
         cv2.destroyWindow("Raw Source")
         break
 
-    for x in range(0, 4):
-        cv2.circle(rawSource, (circles[x][0], circles[x][1]), 5, (0, 255, 0), cv2.FILLED)
+    for i in range(0, 4):
+        cv2.circle(rawSource, (circles[i][0], circles[i][1]), 5, (0, 255, 0), cv2.FILLED)
 
     cv2.imshow("Raw Source", rawSource)
     # Look for double clicks on "base" window
@@ -68,11 +66,32 @@ while True:
     cv2.waitKey(1)
 
 # Stream corrected footage
+# Create empty images for current and previous frames
+ret, rawSource = cap.read()
+rawSource = cv2.resize(rawSource, (windowW, windowH))
+currentFrame = create_blank(windowW, windowH)
+previousFrame = currentFrame
+
+# currentFrame = np.zeros((windowW, windowH))
+# previousFrame = np.zeros((windowW, windowH))
+
+# print("Keybinds: \n [ - End of turn \n space - save current view to file \n ] - show square 0 in window")
+ctypes.windll.user32.MessageBoxW(0, "Keybinds: \n "
+                                    "\t [ \t - \t End of turn \n "
+                                    "\t Space \t - \t save current view to file \n"
+                                    "\t ] \t - \t show square 0 in window \n"
+                                    "\t ESC \t - \t Exit", "Keybinds", 1)
 while True:
     ret, rawSource = cap.read()
     rawSource = cv2.resize(rawSource, (windowW, windowH))
     correctedImage = cv2.warpPerspective(rawSource, matrix, (windowW, windowH))
-    cv2.imshow("Corrected Perspective", correctedImage)
+
+    imagediff = difference(currentFrame, previousFrame)
+    # windowtext(correctedImage, "Live")
+    now = datetime.now()
+    # windowtext(currentFrame, str(now.strftime("%H:%M:%S")))
+
+    bigwindow([correctedImage, currentFrame, previousFrame, imagediff], (windowW, windowH), "LegGambit")
 
     k = cv2.waitKey(33)
     if k == 32:  # Space key
@@ -83,12 +102,18 @@ while True:
     if k == 93:  # Right square bracket
         individuals = splitboard(correctedImage)
         cv2.imshow("test", individuals[0])
+    if k == 91:  # Left square bracket
+        # Show current snapshot next to previous one
+        previousFrame = currentFrame
+        currentFrame = correctedImage
+        pass
     if k == 27:  # Escape key
         break
     elif k == -1:
         continue
     else:
-        print(k)
+        # print(k)
+        pass
 
 # When everything done, release the capture
 cap.release()
