@@ -24,7 +24,6 @@ def mousepoints(event, x, y, flags, params):
 filename = 'test_images/alex_nocamera.jpg'
 cap = cv2.VideoCapture(0)
 source = cv2.imread(filename)
-#ret, source = cap.read()
 
 cornerClick = cv2.resize(source, (windowH, windowW))
 cv2.imshow("CornerClick", cornerClick)

@@ -1,6 +1,5 @@
-# TODO: make function that finds top left, top right, bottom left, bottom right coords from list
 import numpy as np
-from scipy.spatial import distance as dist
+import cv2
 
 
 def order(pts):
@@ -26,7 +25,6 @@ def order(pts):
     return tl, tr, bl, br
 
 
-# TODO: make function to split board up into 64 individual squares
 def splitboard(img):
     squares = []
     col = np.hsplit(img, 8)
@@ -40,3 +38,14 @@ def splitboard(img):
 def squarename(square):
     # return actual square name, given location in individualSquareMatrix
     return square
+
+
+def cameracheck(camera):
+    # Check if specified camera ID is plugged in
+    cap = cv2.VideoCapture(camera)
+    if cap is None or not cap.isOpened():
+        # No camera found at ID position
+        return False
+    else:
+        # Camera found
+        return True

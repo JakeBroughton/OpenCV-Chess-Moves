@@ -8,12 +8,20 @@ windowH, windowW = 480, 480
 circles = np.zeros((4, 2), np.int)
 counter = 0
 
+cameraID = 0
+
 filename = 'test_images/alex_nocamera.jpg'
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(cameraID)
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 cap_count = 0
+
+# Check camera has access
+if cameracheck(cameraID):
+    pass
+else:
+    raise SystemExit
 
 
 # Mouse click function
@@ -25,6 +33,7 @@ def mousepoints(event, x, y, flags, params):
         # print(circles)
 
 
+# TODO: implement error handling for camera not plugged in
 # Click corners and warp perspective
 while True:
     ret, rawSource = cap.read()
