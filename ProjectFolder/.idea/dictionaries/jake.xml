@@ -2,11 +2,13 @@
   <dictionary name="jake">
     <words>
       <w>boardgrey</w>
+      <w>cameracheck</w>
       <w>grayscale</w>
       <w>imshow</w>
       <w>mousepoints</w>
       <w>myfuncs</w>
       <w>splitboard</w>
+      <w>squarename</w>
     </words>
   </dictionary>
 </component>
