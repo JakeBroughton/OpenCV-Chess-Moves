@@ -87,19 +87,19 @@ while True:
     correctedImage = cv2.warpPerspective(rawSource, matrix, (windowW, windowH))
 
     # Piece that moved difference
-    imagediff = difference(currentFrame, previousFrame)
+    before_move_diff = difference(currentFrame, previousFrame)
 
     # Location that the piece moved to difference
-    imagediff2 = otherdifference(currentFrame, previousFrame)
+    after_move_diff = otherdifference(currentFrame, previousFrame)
 
     # windowtext(correctedImage, "Live")
     now = datetime.now()
     # windowtext(currentFrame, str(now.strftime("%H:%M:%S")))
 
-    bigwindow([correctedImage, currentFrame, previousFrame, imagediff, imagediff2], (windowW, windowH), "LegGambit")
+    bigwindow([correctedImage, currentFrame, previousFrame, before_move_diff, after_move_diff], (windowW, windowH), "LegGambit")
 
     # TODO: Do something with 'imagediff' to find the square that has changed
-    findsquare(imagediff)
+    findsquare(before_move_diff)
 
     #cv2.imshow("Move Location", imagediff2)
     #cv2.imshow("Piece that Moved", imagediff)
