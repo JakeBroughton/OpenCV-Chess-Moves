@@ -9,14 +9,13 @@ Aims:
 - Connect to API
 - Send moves to API
 
-TODO:
-	Main progress:
+Main progress:
 	- Implement contour finding to "before move" and "after move" difference images
 	- Translate "before and after" contours into piece movement
-	- Put moves into 
+	- Put moves into chess engine/list
 
 
-	Small fixes/improvements:
+Small fixes/improvements:
 	- Fix warning text in console
 	- Make bigWindow function more flexible to number of input windows
 		- Takes anywhere from 2 to 8 windows?
