@@ -205,13 +205,14 @@ def findsquares(before, after):
     cv2.drawContours(after_grey, a_contours, -1, (0, 255, 0), 3)
     cv2.drawContours(before_grey, b_contours, -1, (0, 255, 0), 3)
 
-    cv2.imshow("Move location", after_edges)
-    cv2.imshow("Piece that Moved", before_edges)
+    # cv2.imshow("Move location", after_edges)
+    # cv2.imshow("Piece that Moved", before_edges)
 
     a_areas = [cv2.contourArea(c) for c in a_contours]
     b_areas = [cv2.contourArea(d) for d in b_contours]
 
     combo = cv2.add(before_edges, after_edges)
+    cv2.imshow("combo", combo)
 
     # if len(a_areas) > 0:
     #     max_a_index = np.argmax(a_areas)
@@ -228,19 +229,19 @@ def findsquares(before, after):
     #         test = create_blank(480, 480)
     #         test = cv2.arrowedLine(test, start_point, end_point, (0, 255, 0), 10)
     #         cv2.imshow("yeet line", test)
-    if len(a_areas) > 0:
-        max_a_index = np.argmax(a_areas)
-        contours = a_contours[max_a_index]
-        xa, ya, w, h = cv2.boundingRect(contours)
-        print(f"Found after co-ords: x: {xa}, {ya}")
-        if len(b_areas) > 0:
-            max_a_index = np.argmax(b_areas)
-            contours = b_contours[max_a_index]
-            xb, yb, w, h = cv2.boundingRect(contours)
-            print(f"Found before co-ords: x: {xb}, {yb}")
-            start_point = (xb, yb)
-            end_point = (xa, ya)
-            return start_point, end_point
-
-    else:
-        return (0, 0), (0, 0)
+    # if len(a_areas) > 0:
+    #     max_a_index = np.argmax(a_areas)
+    #     contours = a_contours[max_a_index]
+    #     xa, ya, w, h = cv2.boundingRect(contours)
+    #     print(f"Found after co-ords: x: {xa}, {ya}")
+    #     if len(b_areas) > 0:
+    #         max_a_index = np.argmax(b_areas)
+    #         contours = b_contours[max_a_index]
+    #         xb, yb, w, h = cv2.boundingRect(contours)
+    #         print(f"Found before co-ords: x: {xb}, {yb}")
+    #         start_point = (xb, yb)
+    #         end_point = (xa, ya)
+    #         return start_point, end_point
+    #
+    # else:
+    #     return (0, 0), (0, 0)
