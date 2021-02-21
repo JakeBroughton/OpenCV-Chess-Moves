@@ -10,9 +10,9 @@ Aims:
 - Send moves to API
 
 Main progress:
-	- Implement contour finding to "before move" and "after move" difference images
-	- Translate "before and after" contours into piece movement
-	- Put moves into chess engine/list
+- Implement contour finding to "before move" and "after move" difference images
+- Translate "before and after" contours into piece movement
+- Put moves into chess engine/list
 
 
 Small fixes/improvements:
