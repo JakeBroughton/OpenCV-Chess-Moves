@@ -86,12 +86,23 @@ while True:
     rawSource = cv2.resize(rawSource, (windowW, windowH))
     correctedImage = cv2.warpPerspective(rawSource, matrix, (windowW, windowH))
 
+    # Piece that moved difference
     imagediff = difference(currentFrame, previousFrame)
+
+    # Location that the piece moved to difference
+    imagediff2 = otherdifference(currentFrame, previousFrame)
+
     # windowtext(correctedImage, "Live")
     now = datetime.now()
     # windowtext(currentFrame, str(now.strftime("%H:%M:%S")))
 
-    bigwindow([correctedImage, currentFrame, previousFrame, imagediff], (windowW, windowH), "LegGambit")
+    bigwindow([correctedImage, currentFrame, previousFrame, imagediff, imagediff2], (windowW, windowH), "LegGambit")
+
+    # TODO: Do something with 'imagediff' to find the square that has changed
+    findsquare(imagediff)
+
+    #cv2.imshow("Move Location", imagediff2)
+    #cv2.imshow("Piece that Moved", imagediff)
 
     k = cv2.waitKey(33)
     if k == 32:  # Space key
@@ -114,6 +125,7 @@ while True:
     else:
         # print(k)
         pass
+
 
 # When everything done, release the capture
 cap.release()

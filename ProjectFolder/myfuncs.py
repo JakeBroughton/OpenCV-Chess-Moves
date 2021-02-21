@@ -143,6 +143,15 @@ def bigwindow(windows, size, title):
         hconcat1 = cv2.hconcat([newwindows[0], newwindows[1]])
         hconcat2 = cv2.hconcat([newwindows[2], newwindows[3]])
 
+    if len(windows) == 5:
+        blank = create_blank(480, 480)
+        hconcat1 = cv2.hconcat([newwindows[0], newwindows[1], newwindows[2]])
+        hconcat2 = cv2.hconcat([newwindows[3], newwindows[4], blank])
+
+    if len(windows) == 6:
+        hconcat1 = cv2.hconcat([newwindows[0], newwindows[1], newwindows[2]])
+        hconcat2 = cv2.hconcat([newwindows[3], newwindows[4], newwindows[5]])
+
     concat = cv2.vconcat([hconcat1, hconcat2])
     cv2.imshow(title, concat)
 
@@ -162,6 +171,11 @@ def difference(img1, img2):
     return diffy
 
 
+def otherdifference(img1, img2):
+    otherdiffy = cv2.subtract(img2, img1)
+    return otherdiffy
+
+
 def create_blank(width, height, rgb_color=(0, 0, 0)):
     # Create blank openCV image
 
@@ -173,3 +187,16 @@ def create_blank(width, height, rgb_color=(0, 0, 0)):
     # Fill image with color
     image[:] = color
     return image
+
+
+# TODO: Find coordinates of changed pixels
+def findsquare(image):
+    grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(grey, 30, 200)
+
+    contours, hierarchy = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
+    # cv2.imshow("Edges After Contours", edges)
+
+    cv2.drawContours(grey, contours, -1, (0, 255, 0), 3)
+    #cv2.imshow("Piece that Moved", grey)
