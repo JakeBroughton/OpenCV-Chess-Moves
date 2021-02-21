@@ -77,10 +77,13 @@ previousFrame = currentFrame
 
 # print("Keybinds: \n [ - End of turn \n space - save current view to file \n ] - show square 0 in window")
 ctypes.windll.user32.MessageBoxW(0, "Keybinds: \n "
-                                    "\t [ \t - \t End of turn \n "
-                                    "\t Space \t - \t save current view to file \n"
+                                    "\t [ \t - \t save snapshot \n "
+                                    "\t Space \t - \t End of turn \n"
                                     "\t ] \t - \t show square 0 in window \n"
                                     "\t ESC \t - \t Exit", "Keybinds", 1)
+
+turn_count = -2;
+print("Press space twice to initialise system.")
 while True:
     ret, rawSource = cap.read()
     rawSource = cv2.resize(rawSource, (windowW, windowH))
@@ -92,16 +95,14 @@ while True:
     # Location that the piece moved to difference
     after_move_diff = otherdifference(currentFrame, previousFrame)
 
-    findsquares(before_move_diff, after_move_diff)
-    # move_image = cv2.arrowedLine(correctedImage, start_point, end_point, (0, 255, 0), 9)
+    bigwindow([correctedImage, previousFrame, currentFrame,
+               before_move_diff, after_move_diff], (windowW, windowH), "LegGambit")
 
-    bigwindow([correctedImage, currentFrame, previousFrame, before_move_diff, after_move_diff], (windowW, windowH), "LegGambit")
-
-    # cv2.imshow("Move Location", imagediff2)
-    # cv2.imshow("Piece that Moved", imagediff)
+    # cv2.imshow("Process this fucking image", after_move_diff)
+    findsquares(before_move_diff, after_move_diff, turn_count)
 
     k = cv2.waitKey(33)
-    if k == 32:  # Space key
+    if k == 91:  # Left square bracket
         cap_filename = "test_images/misc/cap_count" + str(cap_count) + ".jpg"
         cv2.imwrite(cap_filename, correctedImage)
         cap_count += 1
@@ -109,10 +110,12 @@ while True:
     if k == 93:  # Right square bracket
         individuals = splitboard(correctedImage)
         cv2.imshow("test", individuals[0])[[]]
-    if k == 91:  # Left square bracket
-        # Show current snapshot next to previous one
+    if k == 32:  # Spacekey
+
         previousFrame = currentFrame
         currentFrame = correctedImage
+        turn_count += 1
+        print(turn_count)
         pass
     if k == 27:  # Escape key
         break

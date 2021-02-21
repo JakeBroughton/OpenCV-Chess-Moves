@@ -190,8 +190,7 @@ def create_blank(width, height, rgb_color=(0, 0, 0)):
 
 
 # TODO: Find coordinates of changed pixels
-def findsquares(before, after):
-
+def findsquares(before, after, turn):
 
     before_grey = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
     before_edges = cv2.Canny(before_grey, 30, 200)
@@ -202,46 +201,8 @@ def findsquares(before, after):
     b_contours, b_hierarchy = cv2.findContours(before_edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     a_contours, a_hierarchy = cv2.findContours(after_edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
-    cv2.drawContours(after_grey, a_contours, -1, (0, 255, 0), 3)
-    cv2.drawContours(before_grey, b_contours, -1, (0, 255, 0), 3)
+    cv2.drawContours(after, a_contours, -1, (0, 255, 0), 3)
+    cv2.drawContours(before, b_contours, -1, (0, 255, 0), 3)
 
-    # cv2.imshow("Move location", after_edges)
-    # cv2.imshow("Piece that Moved", before_edges)
-
-    a_areas = [cv2.contourArea(c) for c in a_contours]
-    b_areas = [cv2.contourArea(d) for d in b_contours]
-
-    combo = cv2.add(before_edges, after_edges)
-    cv2.imshow("combo", combo)
-
-    # if len(a_areas) > 0:
-    #     max_a_index = np.argmax(a_areas)
-    #     contours = a_contours[max_a_index]
-    #     xa, ya, w, h = cv2.boundingRect(contours)
-    #     print(f"Found after co-ords: x: {xa}, {ya}")
-    #     if len(b_areas) > 0:
-    #         max_a_index = np.argmax(b_areas)
-    #         contours = b_contours[max_a_index]
-    #         xb, yb, w, h = cv2.boundingRect(contours)
-    #         print(f"Found before co-ords: x: {xb}, {yb}")
-    #         start_point = (xb, yb)
-    #         end_point = (xa, ya)
-    #         test = create_blank(480, 480)
-    #         test = cv2.arrowedLine(test, start_point, end_point, (0, 255, 0), 10)
-    #         cv2.imshow("yeet line", test)
-    # if len(a_areas) > 0:
-    #     max_a_index = np.argmax(a_areas)
-    #     contours = a_contours[max_a_index]
-    #     xa, ya, w, h = cv2.boundingRect(contours)
-    #     print(f"Found after co-ords: x: {xa}, {ya}")
-    #     if len(b_areas) > 0:
-    #         max_a_index = np.argmax(b_areas)
-    #         contours = b_contours[max_a_index]
-    #         xb, yb, w, h = cv2.boundingRect(contours)
-    #         print(f"Found before co-ords: x: {xb}, {yb}")
-    #         start_point = (xb, yb)
-    #         end_point = (xa, ya)
-    #         return start_point, end_point
-    #
-    # else:
-    #     return (0, 0), (0, 0)
+    cv2.imshow("after", after)
+    cv2.imshow("before", before)
