@@ -12,6 +12,7 @@ counter = 0
 
 cameraID = 0
 
+
 filename = 'test_images/alex_nocamera.jpg'
 cap = cv2.VideoCapture(cameraID)
 
@@ -37,7 +38,6 @@ def mousepoints(event, x, y, flags, params):
         # print(circles)
 
 
-# TODO: implement error handling for camera not plugged in
 # Click corners and warp perspective
 while True:
     ret, rawSource = cap.read()
@@ -92,17 +92,17 @@ while True:
     # Location that the piece moved to difference
     after_move_diff = otherdifference(currentFrame, previousFrame)
 
+    findsquares(before_move_diff, after_move_diff)
+    # move_image = cv2.arrowedLine(correctedImage, start_point, end_point, (0, 255, 0), 9)
+
     # windowtext(correctedImage, "Live")
     now = datetime.now()
     # windowtext(currentFrame, str(now.strftime("%H:%M:%S")))
 
     bigwindow([correctedImage, currentFrame, previousFrame, before_move_diff, after_move_diff], (windowW, windowH), "LegGambit")
 
-    # TODO: Do something with 'imagediff' to find the square that has changed
-    findsquare(before_move_diff)
-
-    #cv2.imshow("Move Location", imagediff2)
-    #cv2.imshow("Piece that Moved", imagediff)
+    # cv2.imshow("Move Location", imagediff2)
+    # cv2.imshow("Piece that Moved", imagediff)
 
     k = cv2.waitKey(33)
     if k == 32:  # Space key
@@ -112,7 +112,7 @@ while True:
         print(cap_count)
     if k == 93:  # Right square bracket
         individuals = splitboard(correctedImage)
-        cv2.imshow("test", individuals[0])
+        cv2.imshow("test", individuals[0])[[]]
     if k == 91:  # Left square bracket
         # Show current snapshot next to previous one
         previousFrame = currentFrame
