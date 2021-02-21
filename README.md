@@ -16,12 +16,12 @@ Main progress:
 
 
 Small fixes/improvements:
-	- Fix warning text in console
-	- Make bigWindow function more flexible to number of input windows
-		- Takes anywhere from 2 to 8 windows?
-		- Remove hard coded 480 x 480 values from bigWindow, use global windowW and windowH instead
-	- Refactor main loop for clarity
-	- Group functions into better organised modules, not just all in myfuncs.py
-	- Add labels to windows
-	- Add instructions to pop up windows
-	- Implement Kivy?
+- Fix warning text in console
+- Make bigWindow function more flexible to number of input windows
+	- Takes anywhere from 2 to 8 windows?
+	- Remove hard coded 480 x 480 values from bigWindow, use global windowW and windowH instead
+- Refactor main loop for clarity
+- Group functions into better organised modules, not just all in myfuncs.py
+- Add labels to windows
+- Add instructions to pop up windows
+- Implement Kivy?
